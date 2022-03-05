@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -12,10 +13,13 @@ public class PlayerBehavior : MonoBehaviour
 
     public GameObject pause_menu = null;
 
-    bool wasMovingVertical = true;
-    bool wasMovingHorizontal = false;
-
     Rigidbody2D rb2D;
+
+    bool stepStarted = false;
+
+    public int stepCount = 0;
+    public int maxStep = 10;
+    public Text stepCountText;
 
 
     void Start()
@@ -30,6 +34,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void Update()
     {
+        stepCountText.text = (maxStep - stepCount).ToString();
         if (Input.GetKeyDown(KeyCode.Escape)) //OUVRIR / FERMER MENU PAUSE
         {
             pause_menu.SetActive(!pause_menu.activeSelf);
@@ -40,7 +45,6 @@ public class PlayerBehavior : MonoBehaviour
             rb2D.velocity = Vector2.zero; //pour s'arrêter dès que le joueur cesse de bouger
             return;
         }
-
 
         //MOUVEMENTS ET ANIMATION DES MOUVEMENTS -------------------------------------------------------------------------------------------------
 
@@ -58,41 +62,29 @@ public class PlayerBehavior : MonoBehaviour
         bool isMovingHorizontal = Mathf.Abs(x) > 0.5f;
         bool isMovingVertical = Mathf.Abs(y) > 0.5f;
 
-        if (isMovingVertical && isMovingHorizontal)
+        if (isMovingHorizontal)
         {
-            //moving in both directions, prioritize later
-            if (wasMovingVertical)
-            {
-                rb2D.velocity = new Vector2(x * speed, 0);
-                anim.SetFloat("X", x);
-                anim.SetFloat("Y", 0);
+            if (stepStarted == false) {
+                if (x > 0) {
+                    StartCoroutine(Walk(1, 0));
+                } else {
+                    StartCoroutine(Walk(-1, 0));
+                }
             }
-            else if (wasMovingHorizontal)
-            {
-                rb2D.velocity = new Vector2(0, y * speed);                
-                anim.SetFloat("X", 0);
-                anim.SetFloat("Y", y);
-            }
-        }
-        else if (isMovingHorizontal)
-        {
-            rb2D.velocity = new Vector2(x * speed, 0);
-            wasMovingVertical = false;
-            wasMovingHorizontal = true;
             anim.SetFloat("X", x);
             anim.SetFloat("Y", 0);
         }
         else if (isMovingVertical)
         {
-            rb2D.velocity = new Vector2(0, y * speed);
-            wasMovingVertical = true;
-            wasMovingHorizontal = false;
+            if (stepStarted == false) {
+                if (y > 0) {
+                    StartCoroutine(Walk(0, 1));
+                } else {
+                    StartCoroutine(Walk(0, -1));
+                }
+            }
             anim.SetFloat("X", 0);
             anim.SetFloat("Y", y);
-        }
-        else
-        {
-            rb2D.velocity = Vector2.zero; //pour s'arrêter dès que le joueur cesse de bouger
         }
         //FIN ALGORITHME DE DÉPLACEMENTS
 
@@ -115,5 +107,18 @@ public class PlayerBehavior : MonoBehaviour
                 anim.SetBool("isWalking", isWalking);
             }
         }
+    }
+
+    IEnumerator Walk(int xValue, int yValue)
+    {
+        stepStarted = true;
+        for (var i = 0; i <= 10; i++)
+        {
+            transform.Translate(new Vector2(0.1f * xValue, 0.1f * yValue));
+            yield return new WaitForSeconds(0.02f);
+        }
+        yield return new WaitForSeconds(0.2f);
+        stepCount++;
+        stepStarted = false;
     }
 }
