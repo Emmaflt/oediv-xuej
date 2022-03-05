@@ -2,7 +2,7 @@
     "name": "PlayerMovement",
     "maps": [
         {
-            "name": "MainActionMap",
+            "name": "Main",
             "id": "3c689e28-e3dc-43b9-8cb2-32354e8873af",
             "actions": [
                 {
