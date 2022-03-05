@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerBehavior : MonoBehaviour
+public class PlayerLeftBehavior : MonoBehaviour
 {
 
     private Animator anim;
@@ -16,20 +16,17 @@ public class PlayerBehavior : MonoBehaviour
 
     public int maxStep = 10;
     public int stepCount;
-    public Text stepCountText;
 
     public GameObject spawner; //la ou on apparait au debut
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        stepCount = maxStep;
         transform.position = new Vector2(spawner.transform.position.x, spawner.transform.position.y);
     }
 
     void Update()
     {
-        stepCountText.text = (stepCount).ToString();
         if (Input.GetKeyDown(KeyCode.Escape)) //OUVRIR / FERMER MENU PAUSE
         {
             pause_menu.SetActive(!pause_menu.activeSelf);
@@ -54,7 +51,7 @@ public class PlayerBehavior : MonoBehaviour
         //ANIMATION IDLE EN FONCTION DE L'ORIENTATION
         if(x > 0 || x < 0 || y > 0 || y < 0)
         {
-            anim.SetFloat("LX", x);
+            anim.SetFloat("LX", -x);
             anim.SetFloat("LY", y);
         }
 
@@ -66,12 +63,12 @@ public class PlayerBehavior : MonoBehaviour
         {
             if (stepStarted == false) {
                 if (x > 0) {
-                    StartCoroutine(Walk(1, 0));
-                } else {
                     StartCoroutine(Walk(-1, 0));
+                } else {
+                    StartCoroutine(Walk(1, 0));
                 }
             }
-            anim.SetFloat("X", x);
+            anim.SetFloat("X", -x);
             anim.SetFloat("Y", 0);
         }
         else if (isMovingVertical)
