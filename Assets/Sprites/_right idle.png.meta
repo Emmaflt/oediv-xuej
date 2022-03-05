@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: f068e3ff737dc4b41a6d1bdc85a2efba
+guid: 4c18d64fe8552f646abc5b565ce29ac2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5811122338746843335
-    second: _down walk_0
+      213: 5720679679094219940
+    second: _right idle_0
   - first:
-      213: 1011322702815282146
-    second: _down walk_1
+      213: -8487736741132022460
+    second: _right idle_1
   - first:
-      213: 8916835064827647011
-    second: _down walk_2
+      213: -6891743900146720671
+    second: _right idle_2
   - first:
-      213: 8907193094803289048
-    second: _down walk_3
+      213: -3349317652759947561
+    second: _right idle_3
   - first:
-      213: -4709068882654971352
-    second: _down walk_4
-  - first:
-      213: -3395846732119627721
-    second: _down walk_5
+      213: -2614070202162415645
+    second: _right idle_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,7 +130,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _down walk_0
+      name: _right idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -147,14 +144,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c0c75b7af045a050800000000000000
-      internalID: 5811122338746843335
+      spriteID: 4a4e432dbdfe36f40800000000000000
+      internalID: 5720679679094219940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _down walk_1
+      name: _right idle_1
       rect:
         serializedVersion: 2
         x: 64
@@ -168,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e3c796d3a0f80e00800000000000000
-      internalID: 1011322702815282146
+      spriteID: 44d4bc56760853a80800000000000000
+      internalID: -8487736741132022460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _down walk_2
+      name: _right idle_2
       rect:
         serializedVersion: 2
         x: 128
@@ -189,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3249ccf7f36febb70800000000000000
-      internalID: 8916835064827647011
+      spriteID: 1602ac4df6b9b50a0800000000000000
+      internalID: -6891743900146720671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _down walk_3
+      name: _right idle_3
       rect:
         serializedVersion: 2
         x: 192
@@ -210,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d3ff896de4bc9b70800000000000000
-      internalID: 8907193094803289048
+      spriteID: 7d65c4b1755d481d0800000000000000
+      internalID: -3349317652759947561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _down walk_4
+      name: _right idle_4
       rect:
         serializedVersion: 2
         x: 0
@@ -231,29 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82a318a0dc606aeb0800000000000000
-      internalID: -4709068882654971352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _down walk_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 738a65c93678fd0d0800000000000000
-      internalID: -3395846732119627721
+      spriteID: 3e7fc264005f8bbd0800000000000000
+      internalID: -2614070202162415645
       vertices: []
       indices: 
       edges: []
