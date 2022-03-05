@@ -26,15 +26,8 @@ public class PlayerBehavior : MonoBehaviour
     void Awake()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
-        //renderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    void FixedUpdate()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) //OUVRIR / FERMER MENU PAUSE
