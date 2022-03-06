@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerBehavior : MonoBehaviour
 {
-
     private Animator anim;
     private float x, y;
     private bool isWalking;
