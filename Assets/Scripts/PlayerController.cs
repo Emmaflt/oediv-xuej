@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public int stepCount;
     public Text stepCountText;
 
+    public GameObject spawner; //la ou on apparait au debut
+
+
     private void Awake()
     {
         controls = new PlayerMovement();
@@ -45,7 +48,9 @@ public class PlayerController : MonoBehaviour
 
         //GAME OVER
         if (stepCount <= 0) {
-           // transform.position = new Vector2(spawner.transform.position.x, spawner.transform.position.y);
+            transform.position = new Vector2(spawner.transform.position.x, spawner.transform.position.y);
+            playerSprite.position = new Vector2(spawner.transform.position.x, spawner.transform.position.y + 0.5f);
+            //animation de mort
             stepCount = maxStep;
         }
     }
