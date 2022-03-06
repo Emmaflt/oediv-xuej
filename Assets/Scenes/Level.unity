@@ -2459,7 +2459,7 @@ Transform:
   - {fileID: 1226341074}
   - {fileID: 1841232458}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &548429035
 GameObject:
@@ -5995,7 +5995,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1458136421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16613bafa3adb9c45a0fe81c767e67f0, type: 3}
+  m_Script: {fileID: 11500000, guid: eb94302b2b96daa4cb7fb086af3861a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groundTilemap: {fileID: 1841232460}
@@ -6197,7 +6197,7 @@ Transform:
   m_Children:
   - {fileID: 606374748}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1466836360
 BoxCollider2D:
@@ -6801,6 +6801,9 @@ MonoBehaviour:
   movePointRight: {fileID: 606374748}
   playerSpriteRight: {fileID: 1466836359}
   spawnerRight: {fileID: 1353628426}
+  movePointLeft: {fileID: 1458136422}
+  playerSpriteLeft: {fileID: 1773304078}
+  spawnerLeft: {fileID: 2013157030}
 --- !u!4 &1563891966
 Transform:
   m_ObjectHideFlags: 0
@@ -6813,7 +6816,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1574619608
 GameObject:
@@ -7563,7 +7566,7 @@ Transform:
   m_Children:
   - {fileID: 1458136422}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1777668991
 GameObject:
