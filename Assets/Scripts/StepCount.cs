@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class StepCount : MonoBehaviour
 {
@@ -15,13 +17,19 @@ public class StepCount : MonoBehaviour
     public Transform movePointRight;
     public Transform playerSpriteRight;
     public Transform spawnerRight;
+    public Transform winPointRight;
 
     public Transform movePointLeft;
     public Transform playerSpriteLeft;
     public Transform spawnerLeft;
+    public Transform winPointLeft;
+
+    public string levelToLoad;
 
     void Start() {
-        movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
+        //movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
+        movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
+
         playerSpriteRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
         playerSpriteLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
 
@@ -36,6 +44,12 @@ public class StepCount : MonoBehaviour
             stepRight = false;
         }
         stepCountText.text = (stepCount).ToString();
+
+        if (movePointRight.position == winPointRight.position && movePointLeft.position == winPointLeft.position) {
+            //WIN
+            //FONDU AU NOIR
+            SceneManager.LoadScene(levelToLoad);
+        }
 
         //GAME OVER
         if (stepCount <= 0) {
