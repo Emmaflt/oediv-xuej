@@ -9,8 +9,6 @@ public class PlayerBehavior : MonoBehaviour
     private float x, y;
     private bool isWalking;
 
-    public GameObject pause_menu = null;
-
     public Transform movePoint;
     public float moveSpeed = 2f;
 
@@ -22,22 +20,8 @@ public class PlayerBehavior : MonoBehaviour
 
     void Update()
     {
-        
-        //OUVRIR / FERMER MENU PAUSE
-        if (Input.GetKeyDown(KeyCode.Escape)) 
-        {
-            pause_menu.SetActive(!pause_menu.activeSelf);
-        }
-
-        //PAUSE
-        if (pause_menu.activeSelf)
-        {
-            return;
-        }
-        
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(movePoint.position.x, movePoint.position.y + 0.5f, movePoint.position.z), moveSpeed * Time.deltaTime);
-
-
+        
         //ANIMATION DES MOUVEMENTS --------------------------------------------------------------------------------
         x = Input.GetAxis("Horizontal"); //équivalent de X
         y = Input.GetAxis("Vertical"); // équivalent de Y

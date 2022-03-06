@@ -10,6 +10,8 @@ public class StepCount : MonoBehaviour
     public int maxStep = 10;
     public int stepCount;
     public Text stepCountText;
+    public GameObject pause_menu = null;
+
 
     public bool stepLeft;
     public bool stepRight;
@@ -39,6 +41,18 @@ public class StepCount : MonoBehaviour
 
     void Update()
     {
+        //OUVRIR / FERMER MENU PAUSE
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            pause_menu.SetActive(!pause_menu.activeSelf);
+        }
+
+        //PAUSE
+        if (pause_menu.activeSelf)
+        {
+            return;
+        }
+
         if ((stepLeft && stepRight) || (stepLeft && !stepRight) || (!stepLeft && stepRight)) {
             stepCount--;
             stepLeft = false;
