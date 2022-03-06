@@ -21,7 +21,7 @@ public class StepCount : MonoBehaviour
     public Transform spawnerLeft;
 
     void Start() {
-        //movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
+        movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
         playerSpriteRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
         playerSpriteLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
 

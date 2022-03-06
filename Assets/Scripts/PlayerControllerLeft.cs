@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class PlayerControllerLeft : MonoBehaviour
 {
-[SerializeField]
+    [SerializeField]
     private Tilemap groundTilemap;
     
     [SerializeField]
