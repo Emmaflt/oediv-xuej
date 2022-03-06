@@ -16,7 +16,6 @@ public class PlayerBehavior : MonoBehaviour
 
     void Start()
     {
-        //transform.position = new Vector2(spawner.transform.position.x, spawner.transform.position.y + 0.5f);
         anim = GetComponent<Animator>();
         movePoint.parent = null;
     }
