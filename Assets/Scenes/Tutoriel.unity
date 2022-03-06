@@ -500,6 +500,7 @@ MonoBehaviour:
   maxStep: 10
   stepCount: 0
   stepCountText: {fileID: 2033076111}
+  pause_menu: {fileID: 1365224734}
   stepLeft: 0
   stepRight: 0
   movePointRight: {fileID: 38691291}
@@ -9080,7 +9081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c9dc2d30f4f8043a84d8cfc83dc7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pause_menu: {fileID: 1365224734}
   movePoint: {fileID: 38691291}
   moveSpeed: 2
 --- !u!95 &2062291215
@@ -9251,7 +9251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c9dc2d30f4f8043a84d8cfc83dc7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pause_menu: {fileID: 1365224734}
   movePoint: {fileID: 1599081725}
   moveSpeed: 2
 --- !u!95 &2086748236

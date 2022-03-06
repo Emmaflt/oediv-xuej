@@ -8,6 +8,8 @@ public class PlayerBehavior : MonoBehaviour
     private Animator anim;
     private float x, y;
     private bool isWalking;
+    public bool isDead;
+
 
     public Transform movePoint;
     public float moveSpeed = 2f;
@@ -21,13 +23,16 @@ public class PlayerBehavior : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(movePoint.position.x, movePoint.position.y + 0.5f, movePoint.position.z), moveSpeed * Time.deltaTime);
-        
+
         //ANIMATION DES MOUVEMENTS --------------------------------------------------------------------------------
         x = Input.GetAxis("Horizontal"); //équivalent de X
         y = Input.GetAxis("Vertical"); // équivalent de Y
 
         bool isMovingHorizontal = Mathf.Abs(x) > 0.5f;
         bool isMovingVertical = Mathf.Abs(y) > 0.5f;
+
+        anim.SetBool("isDead", isDead);
+
 
         //DÉTECTION DE SI LE PLAYER MARCHE OU NON
         if (Vector3.Distance(transform.position, new Vector3(movePoint.position.x, movePoint.position.y + 0.5f, movePoint.position.z)) != 0) // = si x et y sont différents de 0

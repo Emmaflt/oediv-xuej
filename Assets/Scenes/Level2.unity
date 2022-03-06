@@ -4703,7 +4703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c9dc2d30f4f8043a84d8cfc83dc7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pause_menu: {fileID: 417332527}
+  isDead: 0
   movePoint: {fileID: 1208527052}
   moveSpeed: 2
 --- !u!95 &603354489
@@ -4744,6 +4744,7 @@ Animation:
   - {fileID: 7400000, guid: 495c700dc0a313948935397a044ab76b, type: 2}
   - {fileID: 7400000, guid: 580ecc02fce2342499c7f605284d659e, type: 2}
   - {fileID: 7400000, guid: 5d3335ba9f852424ba9290df0b9aebe6, type: 2}
+  - {fileID: 7400000, guid: 2e68c363e820aef4889f9878b4c9c760, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -6016,7 +6017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c9dc2d30f4f8043a84d8cfc83dc7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pause_menu: {fileID: 417332527}
+  isDead: 0
   movePoint: {fileID: 1149216379}
   moveSpeed: 2
 --- !u!95 &881425044
@@ -7662,16 +7663,19 @@ MonoBehaviour:
   maxStep: 17
   stepCount: 0
   stepCountText: {fileID: 31603071}
+  pause_menu: {fileID: 417332527}
   stepLeft: 0
   stepRight: 0
   movePointRight: {fileID: 1208527052}
   playerSpriteRight: {fileID: 603354486}
   spawnerRight: {fileID: 598303712}
   winPointRight: {fileID: 1225828289}
+  playerRight: {fileID: 603354485}
   movePointLeft: {fileID: 1149216379}
   playerSpriteLeft: {fileID: 881425041}
   spawnerLeft: {fileID: 902978741}
   winPointLeft: {fileID: 1724942288}
+  playerLeft: {fileID: 881425040}
   levelToLoad: Level3
 --- !u!4 &984999989
 Transform:

@@ -20,11 +20,14 @@ public class StepCount : MonoBehaviour
     public Transform playerSpriteRight;
     public Transform spawnerRight;
     public Transform winPointRight;
+    public GameObject playerRight;
 
     public Transform movePointLeft;
     public Transform playerSpriteLeft;
     public Transform spawnerLeft;
     public Transform winPointLeft;
+    public GameObject playerLeft;
+
 
     public string levelToLoad;
 
@@ -68,12 +71,22 @@ public class StepCount : MonoBehaviour
 
         //GAME OVER
         if (stepCount <= 0) {
+            StartCoroutine(GameOver());
+        }
+    }
+
+    IEnumerator GameOver() {
+            playerRight.GetComponent<PlayerBehavior>().isDead = true;
+            playerLeft.GetComponent<PlayerBehavior>().isDead = true;
+            yield return new WaitForSeconds(2);
             movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
             playerSpriteRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
             movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
             playerSpriteLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
-            //animation de mort
+            playerRight.GetComponent<PlayerBehavior>().isDead = false;
+            playerLeft.GetComponent<PlayerBehavior>().isDead = false;
             stepCount = maxStep;
-        }
+            yield return null;
     }
+
 }

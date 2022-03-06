@@ -9572,7 +9572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac694c2e77259d4aa3c7c1376a99d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStep: 17
+  maxStep: 15
   stepCount: 0
   stepCountText: {fileID: 481551242}
   pause_menu: {fileID: 797791200}
