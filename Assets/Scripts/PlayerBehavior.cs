@@ -6,34 +6,23 @@ using UnityEngine.UI;
 public class PlayerBehavior : MonoBehaviour
 {
 
-
-
     private Animator anim;
     private float x, y;
     private bool isWalking;
 
     public GameObject pause_menu = null;
 
-    // bool stepStarted = false;
-
-    // public int maxStep = 10;
-    // public int stepCount;
-    // public Text stepCountText;
-
-    // Rigidbody2D rb2D;
-
+    public Transform movePoint;
+    public float moveSpeed = 2f;
+    
     public GameObject spawner; //la ou on apparait au debut
-
-    // private Vector2 _direction = Vector2.zero; 
 
 
     void Start()
     {
         transform.position = new Vector2(spawner.transform.position.x, spawner.transform.position.y);
         anim = GetComponent<Animator>();
-        //stepCount = maxStep;
-        //rb2D = gameObject.GetComponent<Rigidbody2D>();
-
+        movePoint.parent = null;
     }
 
     void Update()
@@ -51,55 +40,19 @@ public class PlayerBehavior : MonoBehaviour
         {
             return;
         }
+        
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(movePoint.position.x, movePoint.position.y + 0.5f, movePoint.position.z), moveSpeed * Time.deltaTime);
 
-        //GAME OVER
-        // if (stepCount <= 0) {
-        //     transform.position = new Vector2(spawner.transform.position.x, spawner.transform.position.y);
-        //     stepCount = maxStep;
-        // }
 
         //ANIMATION DES MOUVEMENTS --------------------------------------------------------------------------------
         x = Input.GetAxis("Horizontal"); //équivalent de X
         y = Input.GetAxis("Vertical"); // équivalent de Y
 
-        //MOUVEMENTS -------------------------------------------------------------------------------------------------
-
         bool isMovingHorizontal = Mathf.Abs(x) > 0.5f;
         bool isMovingVertical = Mathf.Abs(y) > 0.5f;
 
-        if (isMovingHorizontal)
-        {
-            // if (x > 0) {
-                //_direction = new Vector2 (1, 0);
-                //stepStarted = true;
-                //StartCoroutine(Walk());
-            // } else {
-                //_direction = new Vector2 (-1, 0);
-                //stepStarted = true;
-                //StartCoroutine(Walk());
-            // }
-            anim.SetFloat("X", x);
-            anim.SetFloat("Y", 0);
-        }
-        else if (isMovingVertical)
-        {
-            // if (y > 0) {
-            //     _direction = new Vector2 (0, 1);
-            //     stepStarted = true;
-            //     // StartCoroutine(Walk());
-            // } else {
-            //     _direction = new Vector2 (0, -1);
-            //     stepStarted = true;
-            //     // StartCoroutine(Walk());
-            // }
-            anim.SetFloat("X", 0);
-            anim.SetFloat("Y", y);
-        } 
-        //FIN ALGORITHME DE DÉPLACEMENTS
-
-        //ALGORITHME D'ANIMATION DE MARCHE EN FONCTION DE L'ORIENTATION DU PERSONNAGE
-        // Détection de si le personnage bouge ou non
-        if (x != 0 || y != 0) // = si x et y sont différents de 0
+        //DÉTECTION DE SI LE PLAYER MARCHE OU NON
+        if (Vector3.Distance(transform.position, new Vector3(movePoint.position.x, movePoint.position.y + 0.5f, movePoint.position.z)) != 0) // = si x et y sont différents de 0
         {
             if (!isWalking)
             {
@@ -123,46 +76,15 @@ public class PlayerBehavior : MonoBehaviour
             anim.SetFloat("LY", y);
         }
 
+        if (isMovingHorizontal)
+        {
+            anim.SetFloat("X", x);
+            anim.SetFloat("Y", 0);
+        }
+        else if (isMovingVertical)
+        {
+            anim.SetFloat("X", 0);
+            anim.SetFloat("Y", y);
+        } 
     }
-
-    // IEnumerator Walk(int xValue, int yValue)
-    // {
-    //     if (timeMoving < 2.0f)
-    //     {
-    //         rb2D.velocity = new Vector2( 0.1f * xValue, 0.1f * yValue);
-    //     } else {
-    //         rb2D.velocity = Vector2.zero;
-    //         timeMoving = 0.0f;
-    //         Debug.Log("temps dépassé");
-    //     }
-
-    //     // if (!stepStarted) {
-    //     //     stepStarted = true;
-    //     //     rb2D.velocity = new Vector2( 0.1f * xValue, 0.1f * yValue);
-    //     //     yield return new WaitForSeconds(2);
-    //     // }
-    //     /*for (var i = 0; i <= 10; i++)
-    //     {
-    //         //rb2D.MovePosition(rb2D.position + new Vector2( 0.1f * xValue, 0.1f * yValue));
-    //         //rb2D.MovePosition(new Vector2(transform.position.x + 0.1f * xValue, transform.position.y + 0.1f * yValue));
-    //         //transform.Translate(new Vector2(0.1f * xValue, 0.1f * yValue));
-    //         yield return new WaitForSeconds(0.02f);
-    //     }*/
-    //     yield return new WaitForSeconds(0.2f);
-    //     stepCount--;
-    //     stepStarted = false;
-        
-    // }
-
-    // IEnumerator Walk() {
-
-    //     // } else {
-    //     //     Debug.Log(transform.position.y);
-    //     //     _direction = new Vector2 (0, 0);
-    //     //     stepCount--;
-    //     //     Debug.Log("Les coordonnées du player ont changé");
-    //     //     stepStarted = false;
-    //     // }
-    // }
-
 }
