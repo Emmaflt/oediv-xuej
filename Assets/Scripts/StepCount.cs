@@ -26,13 +26,14 @@ public class StepCount : MonoBehaviour
 
     public string levelToLoad;
 
-    void Start() {
-        //movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
-        movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
-
+    void Awake() {
         playerSpriteRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
         playerSpriteLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
+        // movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
+        // movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
+    }
 
+    void Start() {
         stepCount = maxStep;
     }
 

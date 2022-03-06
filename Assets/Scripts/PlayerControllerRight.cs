@@ -11,6 +11,9 @@ public class PlayerControllerRight : MonoBehaviour
     [SerializeField]
     private Tilemap collisionTilemap;
 
+    [SerializeField]
+    private Tilemap obstacleTilemap;
+
     private PlayerMovementRight controls;
     public Transform playerSprite;
     public GameObject gameManager;
@@ -44,7 +47,7 @@ public class PlayerControllerRight : MonoBehaviour
 
     private bool CanMove(Vector2 direction) {
         Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)direction);
-        if (!groundTilemap.HasTile(gridPosition) || collisionTilemap.HasTile(gridPosition) || Vector3.Distance(transform.position, new Vector3(playerSprite.position.x, playerSprite.position.y - 0.5f, playerSprite.position.z)) != 0) {
+        if (!groundTilemap.HasTile(gridPosition) || collisionTilemap.HasTile(gridPosition) || obstacleTilemap.HasTile(gridPosition) || Vector3.Distance(transform.position, new Vector3(playerSprite.position.x, playerSprite.position.y - 0.5f, playerSprite.position.z)) != 0) {
             return false;
         } else {
             return true;

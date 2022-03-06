@@ -41,12 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Layer 1
+  - name: Ground
     uniqueID: 2425651459
     locked: 0
-  - name: Layer 2
+  - name: Walls
     uniqueID: 4250941897
     locked: 0
-  - name: Layer 3
+  - name: Obstacles
+    uniqueID: 3664661591
+    locked: 0
+  - name: Player
     uniqueID: 4189426099
+    locked: 0
+  - name: Obstacles Top
+    uniqueID: 2273370501
+    locked: 0
+  - name: Walls Top
+    uniqueID: 2839612949
     locked: 0
