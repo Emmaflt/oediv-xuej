@@ -16,11 +16,16 @@ public class StepCount : MonoBehaviour
     public Transform playerSpriteRight;
     public Transform spawnerRight;
 
+    public Transform movePointLeft;
+    public Transform playerSpriteLeft;
+    public Transform spawnerLeft;
+
     void Start() {
         //movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
         playerSpriteRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
-        stepCount = maxStep;
+        playerSpriteLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
 
+        stepCount = maxStep;
     }
 
     void Update()
@@ -36,6 +41,8 @@ public class StepCount : MonoBehaviour
         if (stepCount <= 0) {
             movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
             playerSpriteRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
+            movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
+            playerSpriteLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
             //animation de mort
             stepCount = maxStep;
         }
