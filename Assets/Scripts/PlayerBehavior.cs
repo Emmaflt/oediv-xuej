@@ -15,19 +15,15 @@ public class PlayerBehavior : MonoBehaviour
     public Transform movePoint;
     public float moveSpeed = 2f;
 
-    public GameObject spawner; //la ou on apparait au debut
-
-
     void Start()
     {
-        transform.position = new Vector2(spawner.transform.position.x, spawner.transform.position.y + 0.5f);
+        //transform.position = new Vector2(spawner.transform.position.x, spawner.transform.position.y + 0.5f);
         anim = GetComponent<Animator>();
         movePoint.parent = null;
     }
 
     void Update()
     {
-        //stepCountText.text = (stepCount).ToString();
         
         //OUVRIR / FERMER MENU PAUSE
         if (Input.GetKeyDown(KeyCode.Escape)) 

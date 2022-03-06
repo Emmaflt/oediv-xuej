@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerRight : MonoBehaviour
 {
     [SerializeField]
     private Tilemap groundTilemap;
@@ -12,20 +11,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Tilemap collisionTilemap;
 
-    private PlayerMovement controls;
-
+    private PlayerMovementRight controls;
     public Transform playerSprite;
-
-    public int maxStep = 10;
-    public int stepCount;
-    public Text stepCountText;
-
-    public GameObject spawner; //la ou on apparait au debut
+    public GameObject gameManager;
 
 
     private void Awake()
     {
-        controls = new PlayerMovement();
+        controls = new PlayerMovementRight();
     }
 
     private void OnEnable()
@@ -39,26 +32,13 @@ public class PlayerController : MonoBehaviour
     }
 
     void Start() {
-        stepCount = maxStep;
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
-    }
-
-    public void Update() {
-        stepCountText.text = (stepCount).ToString();
-
-        //GAME OVER
-        if (stepCount <= 0) {
-            transform.position = new Vector2(spawner.transform.position.x, spawner.transform.position.y);
-            playerSprite.position = new Vector2(spawner.transform.position.x, spawner.transform.position.y + 0.5f);
-            //animation de mort
-            stepCount = maxStep;
-        }
     }
 
     private void Move(Vector2 direction) {
         if (CanMove(direction)) {
             transform.position += (Vector3)direction;
-            stepCount--;
+            gameManager.GetComponent<StepCount>().stepRight = true;
         }
     }
 
