@@ -31,10 +31,11 @@ public class SettingsMenu : MonoBehaviour
                 currentResolutionIndex = 1;
             }
         }
-
+        SetFullScreen(false);
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        gameObject.SetActive(false);
     }
 
     public void SetVolume(float volume)
@@ -44,7 +45,9 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetFullScreen(bool isFullScreen)
     {
-        Screen.fullScreen = isFullScreen;
+        Screen.SetResolution(Screen.width, Screen.height, isFullScreen);
+        resolutionDropdown.RefreshShownValue();
+        resolutionDropdown.interactable = !isFullScreen;
     }
 
     public void SetResolution(int resolutionIndex)
