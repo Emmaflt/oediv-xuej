@@ -3,44 +3,29 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool gameIsPaused = false;
+    public bool gameIsPaused = false;
 
     [SerializeField] public GameObject pauseMenuUI;
+    [SerializeField] public GameObject settingsMenuUI;
 
-    void Update()
+
+    public void Resume()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gameIsPaused)
-            {
-                Resume();
-            }
-
-            else
-            {
-                Paused();
-            }
-        }
-
+        pauseMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(false);
+        Time.timeScale = 1;
+        gameIsPaused = false;
     }
 
-    void Paused()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         gameIsPaused = true;
     }
 
-    public void Resume()
-    {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1;
-        gameIsPaused = false;
-    }
-
     public void LoadMainMenu()
     {
-        //DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
         SceneManager.LoadScene("MainMenu");
     }
 }

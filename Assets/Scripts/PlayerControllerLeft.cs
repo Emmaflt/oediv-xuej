@@ -41,7 +41,7 @@ public class PlayerControllerLeft : MonoBehaviour
     private void Move(Vector2 direction) {
         if (CanMove(direction)) {
             transform.position += (Vector3)direction;
-            gameManager.GetComponent<StepCount>().stepLeft = true;
+            gameManager.GetComponent<GameManager>().stepLeft = true;
         }
     }
 
@@ -49,7 +49,7 @@ public class PlayerControllerLeft : MonoBehaviour
         Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)direction);
         if (!groundTilemap.HasTile(gridPosition) || collisionTilemap.HasTile(gridPosition) || obstacleTilemap.HasTile(gridPosition) 
         || Vector3.Distance(transform.position, new Vector3(playerSprite.position.x, playerSprite.position.y - 0.5f, playerSprite.position.z)) != 0 
-        || gameManager.GetComponent<StepCount>().stepCount <= 0) {
+        || gameManager.GetComponent<GameManager>().stepCount <= 0) {
             return false;
         } else {
             return true;

@@ -5,13 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public class StepCount : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public int maxStep = 10;
     public int stepCount;
     public Text stepCountText;
     public GameObject pause_menu = null;
-
 
     public bool stepLeft;
     public bool stepRight;
@@ -27,7 +26,6 @@ public class StepCount : MonoBehaviour
     public Transform spawnerLeft;
     public Transform winPointLeft;
     public GameObject playerLeft;
-
 
     public string levelToLoad;
 
@@ -45,10 +43,14 @@ public class StepCount : MonoBehaviour
     void Update()
     {
         //OUVRIR / FERMER MENU PAUSE
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pause_menu.SetActive(!pause_menu.activeSelf);
-        }
+            if (pause_menu.GetComponent<PauseMenu>().gameIsPaused) {
+                pause_menu.GetComponent<PauseMenu>().Resume();            
+            } else {
+                pause_menu.GetComponent<PauseMenu>().Pause();            
+            }
+        }   
 
         //PAUSE
         if (pause_menu.activeSelf)
