@@ -16,13 +16,13 @@ public class GameManager : MonoBehaviour
     public bool stepRight;
 
     public Transform movePointRight;
-    public Transform playerSpriteRight;
+    //public Transform playerSpriteRight;
     public Transform spawnerRight;
     public Transform winPointRight;
     public GameObject playerRight;
 
     public Transform movePointLeft;
-    public Transform playerSpriteLeft;
+    //public Transform playerSpriteLeft;
     public Transform spawnerLeft;
     public Transform winPointLeft;
     public GameObject playerLeft;
@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
     public string levelToLoad;
 
     void Awake() {
-        playerSpriteRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
-        playerSpriteLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
+        playerRight.GetComponent<Transform>().position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
+        playerLeft.GetComponent<Transform>().position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
         // movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
         // movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
     }
@@ -80,13 +80,13 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOver() {
             playerRight.GetComponent<PlayerBehavior>().isDead = true;
             playerLeft.GetComponent<PlayerBehavior>().isDead = true;
-            yield return new WaitForSeconds(2);
-            movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
-            playerSpriteRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
-            movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
-            playerSpriteLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
+            yield return new WaitForSeconds(2.5f);
             playerRight.GetComponent<PlayerBehavior>().isDead = false;
             playerLeft.GetComponent<PlayerBehavior>().isDead = false;
+            movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
+            movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
+            playerRight.GetComponent<Transform>().position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
+            playerLeft.GetComponent<Transform>().position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
             stepCount = maxStep;
             yield return null;
     }
