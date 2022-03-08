@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
         stepCount = maxStep;
     }
 
+    public void Reset()
+    {
+        StartCoroutine(GameOver());
+    }
+
     void Update()
     {
         //OUVRIR / FERMER MENU PAUSE
@@ -73,6 +78,12 @@ public class GameManager : MonoBehaviour
 
         //GAME OVER
         if (stepCount <= 0) {
+            StartCoroutine(GameOver());
+        }
+
+        //RESET
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             StartCoroutine(GameOver());
         }
     }
