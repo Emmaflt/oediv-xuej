@@ -3399,12 +3399,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1545728150942505116}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &603354486 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1545728151538740714, guid: 7be10e7c183ef8545b31cc19109d8f54,
-    type: 3}
-  m_PrefabInstance: {fileID: 1545728150942505116}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &752073009
 GameObject:
   m_ObjectHideFlags: 0
@@ -3910,12 +3904,6 @@ Tilemap:
 --- !u!1 &881425040 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1571402315197277097, guid: eb5a260eb3c737d45837bcc4c64c22ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 1571402314315864377}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &881425041 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1571402315197277096, guid: eb5a260eb3c737d45837bcc4c64c22ed,
     type: 3}
   m_PrefabInstance: {fileID: 1571402314315864377}
   m_PrefabAsset: {fileID: 0}
@@ -5322,15 +5310,14 @@ MonoBehaviour:
   stepLeft: 0
   stepRight: 0
   movePointRight: {fileID: 1208527052}
-  playerSpriteRight: {fileID: 603354486}
   spawnerRight: {fileID: 598303712}
   winPointRight: {fileID: 1225828289}
   playerRight: {fileID: 603354485}
   movePointLeft: {fileID: 1149216379}
-  playerSpriteLeft: {fileID: 881425041}
   spawnerLeft: {fileID: 902978741}
   winPointLeft: {fileID: 1724942288}
   playerLeft: {fileID: 881425040}
+  winFade: {fileID: 2028627071}
   levelToLoad: Level3
 --- !u!4 &984999989
 Transform:
@@ -7005,6 +6992,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2028627071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4203893902142897477, guid: 39146206ce787cb46ab3e9b26e0ed6f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2028627068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1545728150942505116
 PrefabInstance:
   m_ObjectHideFlags: 0

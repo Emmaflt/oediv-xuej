@@ -870,6 +870,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &556867752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4203893902142897477, guid: 39146206ce787cb46ab3e9b26e0ed6f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5766426850447633911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &743603294
 GameObject:
   m_ObjectHideFlags: 0
@@ -3473,6 +3479,7 @@ MonoBehaviour:
   spawnerLeft: {fileID: 2013157030}
   winPointLeft: {fileID: 341676134}
   playerLeft: {fileID: 412654706}
+  winFade: {fileID: 556867752}
   levelToLoad: Level2
 --- !u!4 &1563891966
 Transform:
