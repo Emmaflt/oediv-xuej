@@ -16,13 +16,11 @@ public class GameManager : MonoBehaviour
     public bool stepRight;
 
     public Transform movePointRight;
-    //public Transform playerSpriteRight;
     public Transform spawnerRight;
     public Transform winPointRight;
     public GameObject playerRight;
 
     public Transform movePointLeft;
-    //public Transform playerSpriteLeft;
     public Transform spawnerLeft;
     public Transform winPointLeft;
     public GameObject playerLeft;
@@ -31,11 +29,11 @@ public class GameManager : MonoBehaviour
 
     public string levelToLoad;
 
+    public bool canMove = true;
+
     void Awake() {
         playerRight.GetComponent<Transform>().position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
         playerLeft.GetComponent<Transform>().position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
-        // movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
-        // movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
     }
 
     void Start() {
@@ -58,6 +56,14 @@ public class GameManager : MonoBehaviour
                 pause_menu.GetComponent<PauseMenu>().Pause();            
             }
         }   
+
+        if (Vector3.Distance(movePointRight.position, new Vector3(playerRight.GetComponent<Transform>().position.x, playerRight.GetComponent<Transform>().position.y - 0.5f, playerRight.GetComponent<Transform>().position.z)) == 0 
+        && Vector3.Distance(movePointLeft.position, new Vector3(playerLeft.GetComponent<Transform>().position.x, playerLeft.GetComponent<Transform>().position.y - 0.5f, playerLeft.GetComponent<Transform>().position.z)) == 0
+        ) {
+            canMove = true;
+        } else {
+            canMove = false;
+        }
 
         //PAUSE
         if (pause_menu.activeSelf)
