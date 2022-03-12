@@ -2270,6 +2270,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5561737760919959300, guid: 39146206ce787cb46ab3e9b26e0ed6f9,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1428795832}
+    - target: {fileID: 5561737760919959300, guid: 39146206ce787cb46ab3e9b26e0ed6f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 93991430}
+    - target: {fileID: 5561737760919959300, guid: 39146206ce787cb46ab3e9b26e0ed6f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561737760919959300, guid: 39146206ce787cb46ab3e9b26e0ed6f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561737760919959300, guid: 39146206ce787cb46ab3e9b26e0ed6f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5766426850815665874, guid: 39146206ce787cb46ab3e9b26e0ed6f9,
         type: 3}
       propertyPath: m_Name
@@ -2398,6 +2423,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1428795832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8431198492103655911, guid: 39146206ce787cb46ab3e9b26e0ed6f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1428795829}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1436108121

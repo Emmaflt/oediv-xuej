@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator GameOver() {
+            stepCount = 0;
             playerRight.GetComponent<PlayerBehavior>().isDead = true;
             playerLeft.GetComponent<PlayerBehavior>().isDead = true;
             yield return new WaitForSeconds(2.5f);
