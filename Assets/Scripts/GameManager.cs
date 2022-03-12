@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     public Transform spawnerLeft;
     public Transform winPointLeft;
     public GameObject playerLeft;
+    public GameObject winFade;
+
 
     public string levelToLoad;
 
@@ -63,6 +65,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        if (movePointRight.position == winPointRight.position && movePointLeft.position == winPointLeft.position) {
+            StartCoroutine(Win());
+        }
+
         if ((stepLeft && stepRight) || (stepLeft && !stepRight) || (!stepLeft && stepRight)) {
             stepCount--;
             stepLeft = false;
@@ -70,11 +76,7 @@ public class GameManager : MonoBehaviour
         }
         stepCountText.text = (stepCount).ToString();
 
-        if (movePointRight.position == winPointRight.position && movePointLeft.position == winPointLeft.position) {
-            //WIN
-            //FONDU AU NOIR
-            SceneManager.LoadScene(levelToLoad);
-        }
+
 
         //GAME OVER
         if (stepCount <= 0) {
@@ -99,6 +101,16 @@ public class GameManager : MonoBehaviour
             playerRight.GetComponent<Transform>().position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
             playerLeft.GetComponent<Transform>().position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
             stepCount = maxStep;
+            yield return null;
+    }
+    
+    IEnumerator Win() {
+            stepCount = 0;
+            yield return new WaitForSeconds(2f);
+            winFade.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            //fondu au noir
+            SceneManager.LoadScene(levelToLoad);
             yield return null;
     }
 
