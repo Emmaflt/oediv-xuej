@@ -498,14 +498,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<SIZE=90> <B> Find The Way Back </B> </SIZE>\n\n\n<SIZE=70> <B>  D\xE9veloppeur
-    : </B> \r</SIZE>\nAlvina Damasio--Razafiarizaka\r\nEmma Fouillat\r\nEnzo Duret\r\n\r\n<SIZE=70>
-    <B> Testeur d\xE9veloppement/QA :\r </B> </SIZE>\nAlvina Damasio--Razafiarizaka\r\nEmma
-    Fouillat\r\n\r\n<SIZE=70> <B> Game Designer : </B> \r</SIZE>\nEnzo Duret\r\n\r\n<SIZE=70>
-    <B> Graphiste : </B> </SIZE>\nMat\xE9o Simonnet\nRPG Main Character by Szadi
-    art\n\n<SIZE=70> <B> Infographiste 2D/3D : </B> </SIZE>\nMat\xE9o Simonnet\nPixel
-    Art Top Down - Basic by Cainos\n\n<SIZE=70> <B> Audio : </B> </SIZE>\n\n\n<SIZE=70>
-    <B> Remerciements : </B> </SIZE>\nRapha\xEBl Marzack\nYoann Bouquey"
+  m_text: "<SIZE=50> <B> Find The Way Back </B> </SIZE>\n\n\n<SIZE=35> <B>  Gameplay
+    Programming : </B> \r</SIZE>\nAlvina Damasio--Razafiarizaka\r\nEmma Fouillat\r\nEnzo
+    Duret\r\n\r\n<SIZE=35> <B> Test QA :\r </B> </SIZE>\nAlvina Damasio--Razafiarizaka\r\nEmma
+    Fouillat\r\n\r\n<SIZE=35> <B> Game Design : </B> \r</SIZE>\nEnzo Duret\r\n\n<SIZE=35>
+    <B>  Level Design : </B> \r</SIZE>\nAlvina Damasio--Razafiarizaka\r\nEmma Fouillat\r\nEnzo
+    Duret\r\n\r\n<SIZE=35> <B> Game Art : </B> </SIZE>\nMat\xE9o Simonnet\nRPG Main
+    Character by Szadi art\nPixel Art Top Down - Basic by Cainos\n\n<SIZE=35> <B>
+    Remerciements : </B> </SIZE>\nRapha\xEBl Marczak\nYoann Bouquey"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -532,8 +532,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
