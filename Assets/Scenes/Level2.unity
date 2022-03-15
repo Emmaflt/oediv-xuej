@@ -5302,7 +5302,8 @@ MonoBehaviour:
   winPointLeft: {fileID: 313631171}
   playerLeft: {fileID: 881425040}
   winFade: {fileID: 2028627071}
-  levelToLoad: Level3
+  levelToLoad: Level2End
+  canMove: 1
 --- !u!4 &984999989
 Transform:
   m_ObjectHideFlags: 0
