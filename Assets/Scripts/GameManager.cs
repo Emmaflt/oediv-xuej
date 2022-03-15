@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public GameObject playerLeft;
     public GameObject winFade;
 
+    public AudioSource audioSource; 
+    public AudioClip gameOverNoise;
+
 
     public string levelToLoad;
 
@@ -98,6 +101,10 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOver() {
             stepCount = 0;
+            if (playerRight.GetComponent<PlayerBehavior>().isDead == false) {
+                StartCoroutine(MyPlayDelay());
+
+            }
             playerRight.GetComponent<PlayerBehavior>().isDead = true;
             playerLeft.GetComponent<PlayerBehavior>().isDead = true;
             yield return new WaitForSeconds(2.5f);
@@ -120,5 +127,11 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(levelToLoad);
             yield return null;
     }
+
+        IEnumerator MyPlayDelay() {
+                yield return new WaitForSeconds(0.6f);
+                audioSource.PlayOneShot(gameOverNoise, 0.5f);
+        }
+
 
 }
