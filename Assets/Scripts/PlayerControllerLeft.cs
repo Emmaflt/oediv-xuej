@@ -45,10 +45,11 @@ public class PlayerControllerLeft : MonoBehaviour
         }
     }
 
+    //Vector3.Distance(transform.position, new Vector3(playerSprite.position.x, playerSprite.position.y - 0.5f, playerSprite.position.z)) != 0
     private bool CanMove(Vector2 direction) {
         Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)direction);
         if (!groundTilemap.HasTile(gridPosition) || collisionTilemap.HasTile(gridPosition) || obstacleTilemap.HasTile(gridPosition) 
-        || Vector3.Distance(transform.position, new Vector3(playerSprite.position.x, playerSprite.position.y - 0.5f, playerSprite.position.z)) != 0 
+        ||  gameManager.GetComponent<GameManager>().canMove == false
         || gameManager.GetComponent<GameManager>().stepCount <= 0) {
             return false;
         } else {

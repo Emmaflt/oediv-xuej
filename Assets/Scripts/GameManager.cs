@@ -16,26 +16,27 @@ public class GameManager : MonoBehaviour
     public bool stepRight;
 
     public Transform movePointRight;
-    //public Transform playerSpriteRight;
     public Transform spawnerRight;
     public Transform winPointRight;
     public GameObject playerRight;
 
     public Transform movePointLeft;
-    //public Transform playerSpriteLeft;
     public Transform spawnerLeft;
     public Transform winPointLeft;
     public GameObject playerLeft;
     public GameObject winFade;
 
+    public AudioSource audioSource; 
+    public AudioClip gameOverNoise;
+
 
     public string levelToLoad;
+
+    public bool canMove = true;
 
     void Awake() {
         playerRight.GetComponent<Transform>().position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y + 0.5f);
         playerLeft.GetComponent<Transform>().position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y + 0.5f);
-        // movePointLeft.position = new Vector2(spawnerLeft.transform.position.x, spawnerLeft.transform.position.y);
-        // movePointRight.position = new Vector2(spawnerRight.transform.position.x, spawnerRight.transform.position.y);
     }
 
     void Start() {
@@ -58,6 +59,14 @@ public class GameManager : MonoBehaviour
                 pause_menu.GetComponent<PauseMenu>().Pause();            
             }
         }   
+
+        if (Vector3.Distance(movePointRight.position, new Vector3(playerRight.GetComponent<Transform>().position.x, playerRight.GetComponent<Transform>().position.y - 0.5f, playerRight.GetComponent<Transform>().position.z)) == 0 
+        && Vector3.Distance(movePointLeft.position, new Vector3(playerLeft.GetComponent<Transform>().position.x, playerLeft.GetComponent<Transform>().position.y - 0.5f, playerLeft.GetComponent<Transform>().position.z)) == 0
+        ) {
+            canMove = true;
+        } else {
+            canMove = false;
+        }
 
         //PAUSE
         if (pause_menu.activeSelf)
@@ -92,6 +101,10 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOver() {
             stepCount = 0;
+            if (playerRight.GetComponent<PlayerBehavior>().isDead == false) {
+                StartCoroutine(MyPlayDelay());
+
+            }
             playerRight.GetComponent<PlayerBehavior>().isDead = true;
             playerLeft.GetComponent<PlayerBehavior>().isDead = true;
             yield return new WaitForSeconds(2.5f);
@@ -114,5 +127,11 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(levelToLoad);
             yield return null;
     }
+
+        IEnumerator MyPlayDelay() {
+                yield return new WaitForSeconds(0.6f);
+                audioSource.PlayOneShot(gameOverNoise, 0.5f);
+        }
+
 
 }
