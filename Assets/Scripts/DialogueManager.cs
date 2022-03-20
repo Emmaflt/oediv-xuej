@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+
     public Text nameText;
     public Text dialogueText;
 
@@ -16,5 +17,10 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         instance = this;
+    }
+
+    public void StartDialogue(Dialogue dialogue)
+    {
+       
     }
 }
