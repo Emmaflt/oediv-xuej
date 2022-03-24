@@ -6,12 +6,19 @@ public class PauseMenu : MonoBehaviour
     public bool gameIsPaused = false;
 
     [SerializeField] public GameObject pauseMenuUI;
+    [SerializeField] public GameObject pauseMainMenuUI;
     [SerializeField] public GameObject settingsMenuUI;
 
+    public void Start() {
+        pauseMenuUI.SetActive(false);
+        pauseMainMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(false);
+    }
 
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        pauseMainMenuUI.SetActive(false);
         settingsMenuUI.SetActive(false);
         Time.timeScale = 1;
         gameIsPaused = false;
@@ -19,9 +26,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0;
         gameIsPaused = true;
+        pauseMenuUI.SetActive(true);
+        pauseMainMenuUI.SetActive(true);
+        settingsMenuUI.SetActive(false);
+        Time.timeScale = 0;
     }
 
     public void LoadMainMenu()
