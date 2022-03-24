@@ -1,42 +1,73 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-[System.Serializable]
+using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
 
-    public GameObject[] dialogObjects;
-    public bool dialogFinished = false;
-    public string levelToLoad;
-    public GameObject fade;
+    public static DialogManager instance;
+    public Text nameText;
+    public Text dialogText;
 
+    private Queue<string> sentences;
+    public GameObject dialogBox;
+    public bool dialogWorking = false;
 
-    void Start()
+    private void Awake()
     {
-        StartCoroutine(showDialogs());
+        if(instance != null)
+        {
+            return;
+        }
+        instance = this;
+
+        sentences = new Queue<string>();
     }
 
-    void Update()
+    public void StartDialog(DialogQueue dialog)
     {
-        if (dialogFinished) {
-            SceneManager.LoadScene(levelToLoad);
+        dialogWorking = true;
+        dialogBox.SetActive(true);
 
+        nameText.text = dialog.name;
+
+        sentences.Clear();
+
+        foreach (string sentence in dialog.sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+
+        DisplayNextSentence();
+    }
+
+    public void DisplayNextSentence()
+    {
+        if(sentences.Count == 0)
+        {
+            EndDialog();
+            return;
+        }
+
+        string sentence = sentences.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        dialogText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogText.text += letter;
+            yield return new WaitForSeconds(0.02f);
         }
     }
 
-    IEnumerator showDialogs() {
-        yield return new WaitForSeconds(2.5f);
-        for (int i = 0; i < dialogObjects.Length; i++) {
-            dialogObjects[i].SetActive(true);
-            yield return new WaitForSeconds(2.5f);
-            Debug.Log("I showed a new dialog");
-        }
-        fade.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
-        dialogFinished = true;
+    void EndDialog()
+    {
+        dialogBox.SetActive(false);
+        dialogWorking = false;
     }
-
 }

@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 1105161200}
-  dialogueText: {fileID: 969161743}
+  dialogText: {fileID: 969161743}
   dialogBox: {fileID: 1669364731}
   dialogWorking: 0
 --- !u!114 &93991433
@@ -307,15 +307,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642a679ca6e459b41be505cd137fa623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
+  dialogQueue:
     name: Vous
     sentences:
-    - 'Utilisez les fleches '
-    - "\xC7a me saoule"
-    - 'ALLLLLLLLLLLLLLLLEZ
-
-'
-  isInRange: 1
+    - You can move using the keyboard arrows.
+    - To start the level all over again, you can either click on the restart button
+      or push the R letter on your keyboard.
+    - The maximum number of steps you can walk is written at the top right corner.
   dialogStart: 1
 --- !u!1 &172773079
 GameObject:
@@ -2371,6 +2369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 638131190104442734, guid: 39146206ce787cb46ab3e9b26e0ed6f9,
+        type: 3}
+      propertyPath: m_Text
+      value: Next
       objectReference: {fileID: 0}
     - target: {fileID: 2269550214764720806, guid: 39146206ce787cb46ab3e9b26e0ed6f9,
         type: 3}
