@@ -3,30 +3,14 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-
-    public bool isInRange;
+    public bool dialogStart = true;
 
     void Update()
     {
-        if(isInRange && Input.GetKeyDown(KeyCode.E))
+        if (dialogStart)
         {
             TriggerDialogue();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player"))
-        {
-            isInRange = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            isInRange = false;
+            dialogStart = false;
         }
     }
 
