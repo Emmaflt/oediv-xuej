@@ -498,15 +498,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<SIZE=38><B> Find The Way Back </B></SIZE>\n\n\n<SIZE=25><B> Gameplay
-    Programming</B></SIZE>\nAlvina Damasio--Razafiarizaka\r\nEmma Fouillat\r\nEnzo
-    Duret\r\n\r\n<SIZE=25><B>Test QA\r</B></SIZE>\nAlvina Damasio--Razafiarizaka\r\nEmma
-    Fouillat\r\n\r\n<SIZE=25><B>Game Design</B>\r</SIZE>\nEnzo Duret\r\n\n<SIZE=25><B>Level
-    Design</B>\r</SIZE>\nAlvina Damasio--Razafiarizaka\r\nEmma Fouillat\r\nEnzo Duret\r\n\r\n<SIZE=25><B>Game
+  m_text: "<SIZE=38><B> Find The Way Back </B></SIZE>\n\n\n<SIZE=25><B>Gameplay Programming</B></SIZE>\nAlvina
+    Damasio--Razafiarizaka\r\nEmma Fouillat\r\nEnzo Duret\r\n\r\n<SIZE=25><B>Test
+    QA\r</B></SIZE>\nAlvina Damasio--Razafiarizaka\r\nEmma Fouillat\r\n\r\n<SIZE=25><B>Game
+    Design</B>\r</SIZE>\nEnzo Duret\r\n\n<SIZE=25><B>Level Design</B>\r</SIZE>\nAlvina
+    Damasio--Razafiarizaka\r\nEmma Fouillat\r\nEnzo Duret\r\n\r\n<SIZE=25><B>Game
     Art</B></SIZE>\nMateo Simonnet\n<SIZE=10>There's normally an accent but this
     font doesn't support it so it's gonna be Mateo without accent</SIZE>\nRPG Main
-    Character by Szadi art\nPixel Art Top Down - Basic by Cainos\n\n<SIZE=25><B>Thanks</B></SIZE>\nRaphael
-    Marczak\n<SIZE=10>Still no accents...</SIZE>\nYoann Bouquey"
+    Character by Szadi art\nPixel Art Top Down - Basic by Cainos\n\n<SIZE=25><B>Music
+    </B></SIZE>\nLoafy Building x Hoffy Beats \u2013 Sleepless Wonder\nProvided by
+    Lofi Records\r\n\n\n<SIZE=25><B>Thanks</B></SIZE>\nRaphael Marczak\n<SIZE=10>Still
+    no accents...</SIZE>\nYoann Bouquey"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2378ac414446c9846a2eca50d4f28929, type: 2}
   m_sharedMaterial: {fileID: 1998968356701644187, guid: 2378ac414446c9846a2eca50d4f28929,
